@@ -1,10 +1,11 @@
 package handlers
 
 import (
-	"net/http"
 	"html/template"
 	"log"
-	"recipes/data"
+	"net/http"
+
+	"github.com/daisyelem/RecipeKeeperBasic/data"
 )
 
 func HomePage(w http.ResponseWriter, r *http.Request) {

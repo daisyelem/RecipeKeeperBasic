@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"recipes/data"
-	"recipes/handlers"
+
+	"github.com/daisyelem/RecipeKeeperBasic/data"
+	"github.com/daisyelem/RecipeKeeperBasic/handlers"
 )
 
 func main() {

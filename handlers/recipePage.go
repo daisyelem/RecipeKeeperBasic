@@ -4,7 +4,8 @@ import (
 	"html/template"
 	"log"
 	"net/http"
-	"recipes/data"
+
+	"github.com/daisyelem/RecipeKeeperBasic/data"
 )
 
 func RecipePage(w http.ResponseWriter, r *http.Request) {
@@ -15,7 +16,7 @@ func RecipePage(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Path[len("/recipe/"):]
 	var single data.Recipe
 
-	for _,value := range data.AllRecipes {
+	for _, value := range data.AllRecipes {
 		if value.Id == id {
 			single = value
 			break
