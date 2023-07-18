@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Recipe Keeper</title>
+    <link rel="stylesheet" href="/frontend/css/homePageStyle.css"> 
+</head>
+<body>
+    <header class="title">
+        <h1>Recipe Keeper</h1>
+    </header>
+    <main>
+        {{range .}}
+        <form method="POST" action="/recipe/{{.Id}}" class="cardform">
+            <button type="submit" name="recipe" value="{{.Id}}" class="card">
+                <header class="recipe"><h2>{{.RecipeName}}</h2></header>
+                <h3 class="PrepT">Prep Time</h3>
+                <p class="PrepB">{{.PrepTime}}</p>
+                <h3 class="CookT">Cook Time</h3>
+                <p class="CookB">{{.CookTime}}</p>
+                <h3 class="ServingT">Serving Size</h3>
+                <p class="ServingB">{{.ServingSize}}</p>
+                <footer class="tag">|{{range .Tags}} {{.}} | {{end}}</footer>
+            </button>
+        </form>
+        {{end}}
+    </main> 
+    <footer>
+        Created By Daisy Murray
+    </footer>
+</body>
+</html>

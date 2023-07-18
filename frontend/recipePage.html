@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{.RecipeName}}</title>
+    <link rel="stylesheet" href="/frontend/css/recipeStyle.css"> 
+</head>
+<body>
+    <header>
+        <h1>{{.RecipeName}}</h1>
+    </header>
+    <main>
+        <div class="details">
+            <h3 class="PrepT">Prep Time</h3>
+            <p class="PrepB">{{.PrepTime}}</p>
+            <h3 class="CookT">Cook Time</h3>
+            <p class="CookB">{{.CookTime}}</p>
+            <h3 class="ServingT">Serving Size</h3>
+            <p class="ServingB">{{.ServingSize}}</p>
+        </div>
+        <div class="Ingredients">
+            <h2 class="IngT">Ingredients</h2>
+            <table class="IngB">
+                {{range $IngredientName, $IngredientAmount := .Ingredients}}
+                    <tr>
+                        <td><strong>{{$IngredientName}}</strong></td>
+                        <td>{{$IngredientAmount}}</td>
+                    </tr>
+                {{end}}
+            </table>
+        </div>
+        <div class="Instructions">
+            <h2 class="InsT">Instructions</h2>
+            <ol class="InsL">
+                {{range .Directions}}
+                <li>{{.}}</li>
+                <br>
+                {{end}}
+            </ol>
+        </div>
+        <div class="Extras">
+            <div class="Source"><strong>{{.Source}}</strong></div>
+            <br>
+            <div class="Tags">
+                |{{range .Tags}} {{.}} | {{end}}
+            </div>
+        </div>
+    </main>
+    <footer>
+        <form method="POST" action="/">
+            <button type="submit" name="recipe">
+                Return
+            </button>
+        </form>
+    </footer>
+</body>
