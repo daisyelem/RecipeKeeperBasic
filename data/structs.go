@@ -8,9 +8,8 @@ type Recipe struct {
 	CookTime    string            `json:"Cook Time"`
 	ServingSize int               `json:"Serving Size"`
 	Ingredients map[string]string `json:"Ingredients"`
-	Directions  map[int]string    `json:"Directions"`
+	Directions  []string          `json:"Directions"`
 	Tags        []string          `json:"Tags"`
 }
 
 var AllRecipes []Recipe
-

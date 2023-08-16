@@ -1,121 +1,152 @@
+/* Initial Set Up + Defaults */
 * {
-    margin:0;
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
-html,body{
-    height: 100%;
-    width: 100%;
+:root {
     font-size: 16px;
 }
-body {
-    text-align: center;
-    display: grid;
-    grid-template-areas: 
-    "header"
-    "main"
-    "footer";
-    justify-items: center;
-    grid-template-columns: minmax(300px, 1fr);
-    grid-template-rows: fit-content 1fr fit-content;
+
+h1 {
+    font-size: 3rem;
 }
 
-header {
-    grid-area: header;
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    display: grid;
+    grid-template-areas:
+        "title"
+        "recipe"
+        "return";
+    grid-template-rows: 80px 1fr 30px;
+    ;
+}
+
+.title {
+    grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: lightsteelblue;
-    width:100%;
-    font-size: 2rem;
-    padding:1rem;
 }
 
 main {
-    padding: 15px;
-    grid-area: main;
+    grid-area: recipe;
+    padding: 5px;
+    gap:5px;
     display: grid;
-    grid-template-areas: 
-    "details details details"
-    "ingredients instructions instructions"
-    "extras instructions instructions";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: fit-content 1fr;
-    gap: 20px;
+    grid-template-areas:
+        "details details"
+        "ingredients instructions"
+        "extras instructions";
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 50px 1fr 100px;
 }
 
 .details {
+    text-align: center;
     grid-area: details;
     display: grid;
-    grid-template-areas: 
-    "prepT cookT servingT"
-    "prepB cookB servingB";
-grid-template-columns: repeat(3, 1fr);
-grid-template-rows: repeat(2, 1fr);
-}
-
-.PrepT {
-    grid-area: prepT;
-}
-.PrepB {
-    grid-area: prepB;
-}
-.CookT {
-    grid-area: cookT;
-}
-.CookB {
-    grid-area: cookB;
-}
-.ServingT {
-    grid-area: servingT;
-}
-.ServingB {
-    grid-area: servingB;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid lightsteelblue;
 }
 
 .Ingredients {
+    padding: 5px;
     grid-area: ingredients;
-    padding: 15px;
-    display: grid;
-    grid-template-areas: 
-    "title"
-    "table";
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
 }
 
-.IngT {
-    grid-area: title;
-}
 
-.IngB {
-    grid-area: table;
-    border-collapse: collapse;
-}
 
-.IngB tr:nth-child(odd) {
+table {
+    border-collapse:collapse;
+}
+td {
+    padding: 4px 2px;
+}
+tr:nth-child(even) {
     background-color: aliceblue;
 }
 
-
-
 .Instructions {
     grid-area: instructions;
-    text-align: justify;
-    padding: 15px;
+    padding: 5px 10px;
+    border-left: 1px solid lightsteelblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.InsL {
+    list-style-position: inside;
+}
+
+li {
+    padding: 5px;
+}
+li:nth-child(odd) {
+    background:aliceblue;
 }
 
 .Extras {
     grid-area: extras;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
 }
 
-footer {
-    grid-area: footer;
+.Source {
+    background-color: aliceblue;
+    padding: 4px;
+}
+
+.return > a {
+    all: unset;
+    grid-area: return;
     width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: lightsteelblue;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
-button {
-    all:unset;
-}
-
-footer > form,button {
-    width:100%;
-    padding: 0.5rem;
-
+.return > a:hover {
+    background-color: black;
+    color: lightsteelblue;
 }

@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 
@@ -11,6 +10,7 @@ import (
 
 func main() {
 	data.FetchAllRecipes()
+	//fmt.Println(data.AllRecipes)
 
 	server := http.NewServeMux()
 
@@ -20,8 +20,6 @@ func main() {
 
 	server.HandleFunc("/", handlers.HomePage)
 	server.HandleFunc("/recipe/", handlers.RecipePage)
-
-	fmt.Println(data.AllRecipes)
 
 	log.Fatal(http.ListenAndServe(":8000", server))
 }

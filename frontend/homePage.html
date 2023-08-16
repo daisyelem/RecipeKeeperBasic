@@ -13,22 +13,20 @@
     </header>
     <main>
         {{range .}}
-        <form method="POST" action="/recipe/{{.Id}}" class="cardform">
-            <button type="submit" name="recipe" value="{{.Id}}" class="card">
+        <a href="/recipe/{{.Id}}" class="card">
                 <header class="recipe"><h2>{{.RecipeName}}</h2></header>
-                <h3 class="PrepT">Prep Time</h3>
-                <p class="PrepB">{{.PrepTime}}</p>
-                <h3 class="CookT">Cook Time</h3>
-                <p class="CookB">{{.CookTime}}</p>
-                <h3 class="ServingT">Serving Size</h3>
-                <p class="ServingB">{{.ServingSize}}</p>
-                <footer class="tag">|{{range .Tags}} {{.}} | {{end}}</footer>
-            </button>
-        </form>
+                <h3 class="prep">Prep Time</h3>
+                <p class="pTime">{{.PrepTime}}</p>
+                <h3 class="cook">Cook Time</h3>
+                <p class="cTime">{{.CookTime}}</p>
+                <h3 class="serve">Serving Size</h3>
+                <p class="sSize">{{.ServingSize}}</p>
+                <footer class="tags"><small>|{{range .Tags}} {{.}} | {{end}}</small></footer>
+        </a>
         {{end}}
     </main> 
-    <footer>
-        Created By Daisy Murray
+    <footer class="copyright">
+        <small> By Daisy Murray</small>
     </footer>
 </body>
 </html>

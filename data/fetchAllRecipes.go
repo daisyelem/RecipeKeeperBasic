@@ -1,10 +1,10 @@
 package data
 
 import (
+	"encoding/json"
 	"io"
 	"log"
 	"net/http"
-	"encoding/json"
 )
 
 func FetchAllRecipes() {
